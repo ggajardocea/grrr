@@ -13,14 +13,12 @@
 #' modifyRut("0017994104-k", option = "dv")
 #' modifyRut("0017994104-k", option = "rut")
 modifyRut <- function(x, option = "rut"){
+  # Se encuentra un dash y se define desde donde contar
   x <- stringr::str_replace_all(x, "[.]", "")
-  dash <- stringr::str_detect(x, "-")
-  if(!dash){
-    end <- 2
-  } else if(dash){
-    end <- 3
-  }
+  dash <- stringr::str_locate(x, "-")[,2]
+  end <- ifelse(is.na(dash), 2, 3)
 
+  # Se revisa que función tiene para entregar el output
   if(option == "complete"){
     rut <- toupper(paste0(as.numeric(stringr::str_sub(x, start=1, end=-end)), "-", stringr::str_sub(x, start=-1, end=-1)))
   } else if(option == "rut"){
