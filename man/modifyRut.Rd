@@ -4,7 +4,7 @@
 \alias{modifyRut}
 \title{Modifica el rut}
 \usage{
-modifyRut(x, option = "complete")
+modifyRut(x, option = "rut")
 }
 \arguments{
 \item{x}{character que tiene el rut completo}
