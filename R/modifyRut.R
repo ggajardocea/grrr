@@ -27,7 +27,7 @@ modifyRut <- function(x, option = "rut"){
   } else if(option == "dv"){
     rut <- toupper(stringr::str_sub(x, start=-1, end=-1))
   } else{
-    print("Ingrese una opción válida")
+    print("Input valid option (complete, rut or dv)")
   }
   return(rut)
 }
